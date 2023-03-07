@@ -21,7 +21,7 @@ try:
     db = cursor.fetchone()
     print("You are connected to the database: ", db)
 except Error:
-    print("Error occurred while connecting to MySQL db", e)
+    print("Error occurred while connecting to MySQL db", Error)
 finally:
     cursor.close()
     connection.close()
