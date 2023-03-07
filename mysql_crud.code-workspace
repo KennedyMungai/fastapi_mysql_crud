@@ -5,6 +5,6 @@
     }
   ],
   "settings": {
-    "cSpell.words": ["dotenv", "pymysql", "sqlalchemy"]
+    "cSpell.words": ["dotenv", "pymysql", "sqlalchemy", "sqltypes"]
   }
 }
