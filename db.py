@@ -1,12 +1,12 @@
 """Created the file to handle the db connection"""
 import os
 
-import MySQLdb
+import pymysql
 from dotenv import find_dotenv, load_dotenv
 
 load_dotenv(find_dotenv())
 
-connection = MySQLdb.connect(
+connection = pymysql.connect(
     host=os.environ.get("MYSQL_HOST"),
     port=os.environ.get("MYSQL_PORT"),
     user=os.environ.get("MYSQL_USER"),
