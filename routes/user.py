@@ -18,7 +18,7 @@ async def read_data():
 
 
 @user.get("/{id}")
-async def read_data_with_id(id: int):
+async def read_data_with_id(_id: int):
     """Reading the data of a specific user with the given id
 
     Args:
@@ -27,11 +27,11 @@ async def read_data_with_id(id: int):
     Returns:
         Query Result: THe result of the executed query
     """
-    return connection.execute(users.select().where(users.c.id == id)).fetchall()
+    return connection.execute(users.select().where(users.c.id == _id)).fetchall()
 
 
 @user.post('/')
-async def write_data(user: User):
+async def write_data(_user: User):
     """A function to write data to teh database
 
     Args:
@@ -41,9 +41,9 @@ async def write_data(user: User):
         Query Result: Returns the result of the executed SQL query
     """
     connection.execute(users.insert().values(
-        name=user.name,
-        email=user.email,
-        password=user.password
+        name=_user.name,
+        email=_user.email,
+        password=_user.password
     )).fetchall()
 
     return connection.execute(users.select()).fetchall()
