@@ -5,6 +5,12 @@ import pymysql
 from pymysql import Error
 from dotenv import find_dotenv, load_dotenv
 
+from sqlalchemy import MetaData
+
+
+meta = MetaData()
+
+
 load_dotenv(find_dotenv())
 
 connection = pymysql.connect(
