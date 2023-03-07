@@ -13,3 +13,5 @@ connection = MySQLdb.connect(
     password=os.environ.get("MYSQL_PASSWORD"),
     db=os.environ.get("MYSQL_DB"),
 )
+
+cursor = connection.cursor()
