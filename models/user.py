@@ -1,8 +1,8 @@
 """A file containing the user model"""
-from sqlalchemy import Table, Column
-from config.db import meta
+from sqlalchemy import Column, Table
 from sqlalchemy.sql.sqltypes import Integer, String
 
+from config.db import meta
 
 users = Table(
     'users', meta,
