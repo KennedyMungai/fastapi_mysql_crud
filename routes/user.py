@@ -48,3 +48,23 @@ async def write_data(_user: User):
     )).fetchall()
 
     return connection.execute(users.select()).fetchall()
+
+
+@user.put('/{id}')
+async def update_data(_id: int, _user: User):
+    """A function that acts as the logic for the update endpoint
+
+    Args:
+        _id (int): The identifier for the user
+        _user (User): The User data in a predefined template
+
+    Returns:
+        Query Result: Returns the result of a sql query
+    """
+    connection.execute(users.update().values(
+        name=_user.name,
+        email=_user.email,
+        password=_user.password
+    ).where(users.c.id == _id)).fetchall()
+
+    return connection.execute(users.select()).fetchall()
