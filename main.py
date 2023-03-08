@@ -1,15 +1,8 @@
 """The entry point for the project"""
 from fastapi import FastAPI
+from routes.index import user
 
 
 app = FastAPI()
 
-
-@app.get("/")
-def sample_endpoint():
-    """A simple endpoint for testing purposes
-
-    Returns:
-        Object: Sample data
-    """
-    return {"Hello": "World"}
+app.include_router(user)
