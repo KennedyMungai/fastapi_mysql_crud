@@ -68,3 +68,17 @@ async def update_data(_id: int, _user: User):
     ).where(users.c.id == _id)).fetchall()
 
     return connection.execute(users.select()).fetchall()
+
+
+@user.delete('/{id}')
+async def delete_data(_id: int):
+    """The function that is called for the delete endpoint
+
+    Args:
+        _id (int): The identifier for the user
+
+    Returns:
+        Query Result: The result of a query execution
+    """
+    connection.execute(users.delete().where(users.c.id == _id))
+    return connection.execute(users.select()).fetchall()
