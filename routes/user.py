@@ -1,5 +1,6 @@
 """The file containing the User route"""
 from fastapi import APIRouter
+
 from config.db import connection
 from models.index import users
 from schemas.index import User
